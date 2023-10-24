@@ -1,4 +1,13 @@
+# This file contains a solution to the following LeetCode problem:
+# Maximum Number of Books You Can Take from the Bookshelf
+# while satisfying the given condition
+# For each index i in the range l <= i < r, you must take strictly fewer books from shelf i than shelf i + 1.
+# Return the maximum number of books you can take from the bookshelf
 
+# I thought my explanation above was correct, but after looking at the problem again, there is one constraint
+# that I missed. "take books from a contiguous section of the bookshelf"
+
+# ******* So the solution below IS NOT correct. *******
 
 def max_num_books(books: list[int]) -> int:
     # get len of books list
@@ -58,10 +67,3 @@ if __name__ == '__main__':
 
     shelf_of_books = [8, 2, 3, 7, 3, 4, 0, 1, 4, 3]
     print(max_num_books(shelf_of_books))
-
-
-
-# Better solution
-# for _ in range(j, min_index, -1):
-#     if books[j] > 0:
-#         checkout_books += left_book_count
