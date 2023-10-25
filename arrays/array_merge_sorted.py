@@ -16,6 +16,7 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 
 
 # Don't use built-in sort
+# Time: O(n + m), Space: O(1)
 def merge1(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     # we work backwards, filling in nums1 from right to left
     # use two pointers, keep track of current index of nums1, nums2
