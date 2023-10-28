@@ -51,6 +51,32 @@ def get_palindromic_values(s: str) -> list[str]:
     return pals
 
 
+def get_largest_palindromic(s: str) -> str:
+    unique_str = set(s)
+    largest_pal = ""
+    max_pal = 0
+    if len(unique_str) == 1:
+        return s
+    elif len(unique_str) == len(s) and len(unique_str) == 2:
+        return s[0]
+
+    for letter in unique_str:
+        start = s.find(letter)
+        end = s.rfind(letter)
+
+        if start < end:
+            all_letters_between = s[start + 1: end]
+            unq_letters_between = set(s[start + 1: end])
+            # if the difference is 1/2, then we have a palindrome
+            if ((len(all_letters_between) / 2) == len(unq_letters_between)) or (len(all_letters_between) == 1):
+                len_pal = len(all_letters_between) + 2
+                if len_pal > max_pal:
+                    max_pal = len_pal
+                    largest_pal = letter + all_letters_between + letter
+
+    return largest_pal
+
+
 if __name__ == '__main__':
     nums1 = [1, 2, 1]
     print(getConcatenation(nums1))
@@ -70,5 +96,22 @@ if __name__ == '__main__':
     print(r)
     print(get_palindromic_values(s1))
 
+    # Get the largest palindromic
+    s1 = "babad"
+    print(get_largest_palindromic(s1))
 
+    s1 = "babcddcbad"
+    print(get_largest_palindromic(s1))
 
+    s1 = "a"
+    print(get_largest_palindromic(s1))
+
+    s1 = "ac"
+    print(get_largest_palindromic(s1))
+
+    s1 = "abb"
+    print(get_largest_palindromic(s1))
+
+    s1 = "abcba"
+    print(get_largest_palindromic(s1))
+    # result should be "abcba"
