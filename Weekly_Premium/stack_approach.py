@@ -1,5 +1,10 @@
 # 2355. Maximum Number of Books You Can Take
 
+# For each index i in the range l <= i < r, you must take strictly fewer books from shelf i than shelf i + 1.
+# Return the maximum number of books you can take from the bookshelf
+# there is one constraint that is very important - "take books from a contiguous section of the bookshelf"
+
+
 def maximumBooks(books: list[int]) -> int:
     n = len(books)
 

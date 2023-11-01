@@ -8,7 +8,7 @@ def buildArray(nums: list[int]) -> list[int]:
     return results
 
 
-# faster than loop above
+# shorter, but not faster than loop above
 def buildArray_2(nums: list[int]) -> list[int]:
     return [nums[i] for i in nums]
 
