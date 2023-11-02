@@ -1,7 +1,9 @@
 
 # 26. Remove Duplicates from Sorted Array
 
-# Brute Force, Time: O(n), Space: O(n)
+# Brute Force
+# Time: O(n), loop thru array once
+# Space: O(1), no extra space used
 def removeDuplicates(nums: list[int]) -> int:
     if len(nums) == 1:
         return 1
@@ -19,6 +21,8 @@ def removeDuplicates(nums: list[int]) -> int:
 
 
 # Use Dictionary
+# Time: O(n), loop thru array once
+# Space: O(n), create dictionary to store elements, worst case is that all elements are unique
 def removeDuplicates1(nums: list[int]) -> int:
     current_elements = {}
     for i in range(len(nums) - 1, -1, -1):
