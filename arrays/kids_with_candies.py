@@ -4,7 +4,7 @@
 # where n is the number of candies that the kid has and k is the extra candies that the kid can get
 
 def kids_with_candies(candies, extra_candies):
-    # set the maximum value testing variable, any candy that is greater than this value will be True
+    # set the maximum candie testing variable. Any candy that is greater than or equal to this value will be True
     max_candies = max(candies) - extra_candies
     return [candy >= max_candies for candy in candies]
 
