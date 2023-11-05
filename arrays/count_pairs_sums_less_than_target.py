@@ -12,19 +12,35 @@ def count_pairs(nums: list[int], target: int) -> int:
             item2_val = nums[index_2]
             print(f'Indexes: {index_1, index_2}')
 
-            if item1_val + item2_val < target:
-                matching_pairs += 1
-                print(f'Indexes matching pair and value: {(index_1, index_2)}, "value: {item1_val + item2_val} "')
+            if index_1 < index_2:
+                if item1_val + item2_val < target:
+                    matching_pairs += 1
+                    print(f'Indexes matching pair and value: {(index_1, index_2)}, "value: {item1_val + item2_val} "')
 
     return matching_pairs
+
+
+def count_pairs1(nums: list[int], target: int) -> int:
+    counter = 0
+    left, right = 0, len(nums) - 1
+    nums.sort()
+    while left < right:
+        if nums[left] + nums[right] < target:
+            counter += right - left
+            left += 1
+        else:
+            right -= 1
+
+    return counter
 
 
 if __name__ == '__main__':
     val = [-1, 1, 2, 3, 1]
     target_val = 2
     print(f'Pairs < target: ', count_pairs(val, target_val))
+    print(f'Pairs < target: ', count_pairs1(val, target_val))
 
     val = [-6,2,5,-2,-7,-1,3]
     target_val = -2
     print(f'Pairs < target: ', count_pairs(val, target_val))
-
+    print(f'Pairs < target: ', count_pairs1(val, target_val))
