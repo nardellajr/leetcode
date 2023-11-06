@@ -21,14 +21,26 @@ def count_pairs(nums: list[int], target: int) -> int:
 
 
 def count_pairs1(nums: list[int], target: int) -> int:
+    """
+     uses two pointers, we only loop thru the list a single time
+    """
     counter = 0
     left, right = 0, len(nums) - 1
+
+    # list has to be sorted
+    # time complexity = O(n log n)
     nums.sort()
+
+    # left index is less than right index
     while left < right:
+        # add values from left most and right most
         if nums[left] + nums[right] < target:
+            # if len of list was 10, 10 - 0 = 10
             counter += right - left
+            # move left pointer towards the right pointer
             left += 1
         else:
+            # move right point towards the left pointer
             right -= 1
 
     return counter
