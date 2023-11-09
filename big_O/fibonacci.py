@@ -9,12 +9,19 @@ def fib(n: int) -> int:
     return fib(n - 1) + fib(n - 2)
 
 # Time complexity:
-# At each recursive call we are increasing the 2 fib calls by 1
+# At each recursive call we are doubling the number of fib calls
 # So, if the n = 4
-# - First time 2 calls: 2**1
-# - Second time 4 calls:  2**2
-# - Third time, there could be 8 call, if some of the previous call didn't hit the termination logic:  2**3
+#
+# - First time, n = 4, f(4) : 2**0
+# - Second time f(3), f(2) :  2**1
+# - Third time f(2) f(1)  f(1) f(0) : 2**2
+# - Forth time, f(1) f(0),there could be 8 calls, if some of the previous call didn't hit the termination logic: 2**3
 # https://www.youtube.com/watch?v=CB8JPjg_3cM
+
+# This doubling of calls is equal to 2**n
+# 2**0 + 2**1 + 2**2 + ... + 2**n-1
+# 2**n  - 1 , but remember we drop the constant
+# O(2**n) - Time Complexity
 
 
 if __name__ == '__main__':
