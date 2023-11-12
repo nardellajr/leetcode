@@ -8,7 +8,7 @@ def buildArray(nums: list[int]) -> list[int]:
     return results
 
 
-# shorter, but not faster than loop above
+# shorter code and faster than loop above
 def buildArray_2(nums: list[int]) -> list[int]:
     return [nums[i] for i in nums]
 
@@ -27,13 +27,13 @@ if __name__ == '__main__':
     expected = [0, 1, 2, 4, 5, 3]
     begin = time.perf_counter()
     r = buildArray(nums1)
-    test_results(r, expected)
     print(f"time: ", time.perf_counter() - begin)
+    test_results(r, expected)
 
     nums1 = [0, 2, 1, 5, 3, 4]
     expected = [0, 1, 2, 4, 5, 3]
     begin = time.perf_counter()
     r = buildArray_2(nums1)
-    test_results(r, expected)
     print(f"time: ", time.perf_counter() - begin)
+    test_results(r, expected)
 

@@ -1,10 +1,17 @@
-
 # 26. Remove Duplicates from Sorted Array
+
+# Code not returning correct results:
+# Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each
+# unique element appears at most twice. The relative order of the elements should be kept the same.
+# For the first test case, I'm returning [1, 2, 3], but it should be [1, 1, 2, 2, 3]
 
 # Brute Force
 # Time: O(n), loop thru array once
 # Space: O(1), no extra space used
 def removeDuplicates(nums: list[int]) -> int:
+    """
+    list has to be sorted, for this code to work
+    """
     if len(nums) == 1:
         return 1
 
@@ -37,6 +44,13 @@ def removeDuplicates1(nums: list[int]) -> int:
 
 
 if __name__ == '__main__':
+    nums = [1, 1, 1, 2, 2, 3]
+    print(removeDuplicates(nums))
+    print(nums)
+    nums = [1, 1, 1, 2, 2, 3]
+    print(removeDuplicates1(nums))
+    print(nums)
+
     nums = [1, 1, 2]
     print(removeDuplicates(nums))
     print(nums)
