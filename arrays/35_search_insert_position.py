@@ -29,7 +29,7 @@ def binary_search(arr: list[int], target: int) -> int:
         else:
             return pivot
 
-    return low # target not found, index where is should be
+    return low # target not found, index where it should be
 
 
 
