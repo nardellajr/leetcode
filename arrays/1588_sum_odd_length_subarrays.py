@@ -25,13 +25,24 @@ def sum_odd_length_subarray(arr: list[int]) -> int:
     return t
 
 def sum_odd_length_subarray2(arr: list[int]) -> int:
-    # find the relationship between freq_current_element and freq_previous_element
+    # The idea is to find the frequency of each element in the array.
+    # How many odd-length subarrays can each element be part of?
+    # For example, if the array is [1, 4, 2, 5, 3], element arr[0] = 1.
+    # The answer is (len(arr)+1)//2. Therefore, the freq of element arr[0] = 1 is (5+1)//2=3.
+    # freq = 3 for arr[0] = 1, so we add 3*1 to the result.
 
     res = 0
     freq = 0
     n = len(arr)
     for i in range(n):
-        freq = freq - (i + 1)//2+(n-i+1)//2
+        part1 = (i + 1)// 2
+        print(f'part1: {part1}')
+        print(f'freq: {freq}')
+        part1a = freq - (i + 1)// 2
+        part2 = (n - i + 1)// 2
+        print(f'part1a: {part1a}, part2: {part2}, added: {part1a + part2}')
+
+        freq = freq - (i + 1)//2 + (n - i + 1)//2
         res += freq * arr[i]
 
     return res
@@ -43,7 +54,7 @@ if __name__ == '__main__':
 
     print(f'working: {sum_odd_length_subarray(arr)}')
 
-    print(f'subarray2: {sum_odd_length_subarray2(arr)}')
+    print(f'subarray2 - Uses Frequency: {sum_odd_length_subarray2(arr)}')
 
 
 # Explanation for sum_odd_length_subarray2
