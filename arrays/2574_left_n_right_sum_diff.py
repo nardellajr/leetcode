@@ -60,10 +60,32 @@ def left_right_differences2(nums: list[int]) -> list[int]:
     return results
 
 
+def left_right_difference3(nums):
+    if len(nums) == 1:
+        return [0]
+
+    nums_length = len(nums)
+    results = [0] * (nums_length + 1)
+
+    for i in range(nums_length):
+        results[i + 1] = results[i] + nums[i]
+
+    for i in range(nums_length):
+        left_sum = results[i]
+        right_sum = results[nums_length] - results[i + 1]
+        results[i] = abs(left_sum - right_sum)
+
+    return results[:nums_length]
+
+
 if __name__ == '__main__':
     nums = [10, 4, 8, 3]
+    r3 = left_right_difference3(nums)
+    print(f' results3: {r3}')
+
     r2 = left_right_differences2(nums)
     print(f' results2: {r2}')
+
     r = left_right_difference(nums)
     print(f' results: {r}')
 
