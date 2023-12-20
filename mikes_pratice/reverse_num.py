@@ -11,7 +11,7 @@ def reverse_number(num):
         digit = num % 10  # Get the last digit
 
         # multiplying by 10 always adds a zero at the end of the number
-        # Say reversed_num = 5 * 10 = 50, then adding digit would be placed in the rightmost position
+        # reversed_num = 5 * 10 = 50, then adding digit would be placed in the rightmost position
         reversed_num = reversed_num * 10 + digit  # Append digit to reversed number
 
         # floor division, keep whole number pare, any fractional part (decimal) is discarded
